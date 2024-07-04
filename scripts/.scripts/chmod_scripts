@@ -1,3 +1,0 @@
-#!/usr/bin/sh
-
-cd ~/.scripts && chmod u+x *

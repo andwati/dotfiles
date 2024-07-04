@@ -1,5 +1,0 @@
-#!/usr/bin/sh
-
-bat cache --build 
-
-cd "$HOME"/dotfiles/ && stow $(ls -d */ | grep -v "kde-shortcuts\|wallpapers") -t "$HOME"
