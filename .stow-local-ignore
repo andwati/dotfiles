@@ -1,0 +1,11 @@
+\.gitignore
+\.bin
+
+^/README.*
+^/LICENSE.*
+
+\.git
+#LICENSE
+README.md
+
+/scripts
