@@ -1,37 +1,40 @@
-# Use powerline
-USE_POWERLINE="true"
-# Has weird character width
-# Example:
-#    is not a diamond
-HAS_WIDECHARS="false"
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-# Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
-fi
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-source /usr/share/nvm/init-nvm.sh
+#-------------------------------------------------------------------------------
+# Aliases / Functions
+#-------------------------------------------------------------------------------
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ian/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ian/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ian/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ian/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Vim
+alias vim='nvim'
 
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+# Eza
+alias ls='eza'
+alias lst='eza -T'
+alias lsg='eza -T --git-ignore'
+
+# Git
+alias ga='git add'
+alias gb='git branch'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gcm='git commit -m'
+alias gcv='git commit -v'
+alias gs='git status'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gl='git log'
+alias glo='git log --oneline'
+alias gp='git push'
+
+# Project
+alias cdp="cd $PERSONAL_PROJECTS_DIR"
+alias cdf="cd $FOREIGN_PROJECTS_DIR"
+alias cdd="cd $PERSONAL_PROJECTS_DIR/discard/"
+
+# Zig
+alias zigup='asdf uninstall zig master && asdf install zig master'
+alias zbt='zig build test'
+alias zbd='rm -rf zig-cache && zig build docs'
+alias zbbd='rm -rf zig-cache && zig build bench'
+alias zbbr='rm -rf zig-cache && zig build bench -Drelease=true'
+
+# Youtube
+alias ytm="yt-dlp -f ba[ext=m4a]"
