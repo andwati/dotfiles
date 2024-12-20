@@ -1,0 +1,61 @@
+[core]
+    editor = nvim
+    excludesFile = ~/.gitignore
+	fsmonitor = true
+    pager = delta
+
+[init]
+	defaultBranch = main
+
+[user]
+	name = Ian Andwati
+	email = andwatiian@gmail.com
+
+[github]
+	user = andwati
+
+[gpg]
+	program = gpg2
+
+[credential]
+	helper = osxkeychain
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[branch]
+  autosetuprebase = always
+
+[commit]
+	gpgsign = true
+
+[push]
+	default = tracking
+	autoSetupRemote = true
+
+[pull]
+    ff = only
+
+[merge]
+    conflictstyle = zdiff3
+
+[rebase]
+    autosquash = true
+
+[diff]
+    algorithm = histogram
+
+[interactive]
+    diffFilter = delta --color-only
+
+[help]
+    autocorrect = prompt
+
+[maintenance]
+	repo = $HOME/Projects/Foreign/zig
+
+[fetch]
+	writeCommitGraph = true
