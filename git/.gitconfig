@@ -14,12 +14,6 @@
 [github]
 	user = andwati
 
-[gpg]
-	program = gpg2
-
-[credential]
-	helper = osxkeychain
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -28,9 +22,6 @@
 
 [branch]
   autosetuprebase = always
-
-[commit]
-	gpgsign = true
 
 [push]
 	default = tracking
@@ -53,9 +44,6 @@
 
 [help]
     autocorrect = prompt
-
-[maintenance]
-	repo = $HOME/Projects/Foreign/zig
 
 [fetch]
 	writeCommitGraph = true
