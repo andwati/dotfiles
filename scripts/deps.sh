@@ -8,14 +8,5 @@ sudo pacman -Sy --needed grub efibootmgr networkmanager network-manager-applet d
 
 rustup toolchain add stable
 
-mkdir -p ~/sources/
 
-cd ~/sources/
-
-git clone https://aur.archlinux.org/paru.git
-
-cd paru
-
-makepkg -si
-
-paru -S   google-chrome nvm deno zola bun-bin heroku-cli-bin pnpm obsidian freedownloadmanager signal-desktop onedrive-abraunegg spotify  visual-studio-code-bin  github-cli postman-bin  media-downloader mongodb-bin mongodb-compass wps-office wps-office-mime wps-office-fonts ttf-wps-fonts
+pamac build   google-chrome nvm deno zola bun-bin heroku-cli-bin pnpm obsidian freedownloadmanager signal-desktop onedrive-abraunegg spotify  visual-studio-code-bin  github-cli postman-bin  media-downloader mongodb-bin mongodb-compass wps-office wps-office-mime wps-office-fonts ttf-wps-fonts
