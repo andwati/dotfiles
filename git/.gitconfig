@@ -29,6 +29,8 @@
 
 [pull]
     ff = only
+[alias]
+        yolo = "!f() { curl -s https://whatthecommit.com/index.txt | xargs git commit -m; }; f"
 
 [merge]
     conflictstyle = zdiff3
