@@ -8,6 +8,11 @@ mkdir -p "$INSTALL_DIR"
 ZIG_LATEST_URL=$(curl -s https://ziglang.org/download/index.json | jq -r '."0.13.0" | ."x86_64-linux".tarball')
 ZIG_TARBALL=$(basename "$ZIG_LATEST_URL")
 
+if [[ -z "$ZIG_LATEST_URL" || "$ZIG_LATEST_URL" == "null" ]]; then
+    echo "Error: Failed to fetch Zig download URL"
+    exit 1
+fi
+
 cd "$INSTALL_DIR"
 curl -LO "$ZIG_LATEST_URL"
 tar -xf "$ZIG_TARBALL" --strip-components=1
@@ -15,6 +20,11 @@ rm "$ZIG_TARBALL"
 
 ZLS_LATEST_URL=$(curl -s https://api.github.com/repos/zigtools/zls/releases/tags/0.13.0 | jq -r '.assets[] | select(.name | test("linux.*x86_64.tar.gz$")) | .browser_download_url')
 ZLS_TARBALL=$(basename "$ZLS_LATEST_URL")
+
+if [[ -z "$ZLS_LATEST_URL" || "$ZLS_LATEST_URL" == "null" ]]; then
+    echo "Error: Failed to fetch ZLS download URL"
+    exit 1
+fi
 
 curl -LO "$ZLS_LATEST_URL"
 tar -xf "$ZLS_TARBALL" --strip-components=1
