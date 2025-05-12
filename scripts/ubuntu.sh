@@ -21,8 +21,6 @@ sudo apt install -y mise
 
 echo 'eval "$(mise activate bash)"' >> ~/.zshrc
 
-mise use -g usage
-
 # if you installed zsh with `apt-get` for example, this will work:
 mkdir -p /usr/local/share/zsh/site-functions
 sudo mise completion zsh  > /usr/local/share/zsh/site-functions/_mise
