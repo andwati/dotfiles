@@ -25,7 +25,7 @@ mise use -g usage
 
 # if you installed zsh with `apt-get` for example, this will work:
 mkdir -p /usr/local/share/zsh/site-functions
-mise completion zsh  > /usr/local/share/zsh/site-functions/_mise
+sudo mise completion zsh  > /usr/local/share/zsh/site-functions/_mise
 
 echo 'deb http://download.opensuse.org/repositories/home:/obs_mhogomchungu/xUbuntu_24.04/ /' | sudo tee /etc/apt/sources.list.d/home:obs_mhogomchungu.list
 curl -fsSL https://download.opensuse.org/repositories/home:obs_mhogomchungu/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_obs_mhogomchungu.gpg > /dev/null
@@ -123,6 +123,24 @@ docker run hello-world
 
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+sudo apt-get update
+
+sudo apt-get install apt-transport-https ca-certificates gnupg curl
+
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+sudo apt-get update && sudo apt-get install google-cloud-cli
+
+wget -O - https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg && \
+echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | sudo tee /etc/apt/sources.list.d/corretto.list
+
+sudo apt-get update; sudo apt-get install -y java-17-amazon-corretto-jdk
+
 
 
 minikube start && minikube dashboard
