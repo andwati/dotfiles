@@ -1,6 +1,5 @@
 [core]
     editor = nvim
-    excludesFile = ~/.gitignore
 	fsmonitor = true
     pager = delta
 
@@ -8,7 +7,7 @@
 	defaultBranch = main
 
 [user]
-	name = Ian Andwati
+	name = andwati
 	email = andwatiian@gmail.com
 
 [github]
