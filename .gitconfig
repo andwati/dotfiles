@@ -1,54 +1,5 @@
-[core]
-    editor = nvim
-	fsmonitor = true
-    pager = delta
-
-[init]
-	defaultBranch = main
-
 [user]
 	name = andwati
-	email = andwatiian@gmail.com
-
-[github]
-	user = andwati
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
-[branch]
-  autosetuprebase = always
-
-[push]
-	default = tracking
-	autoSetupRemote = true
-
-[pull]
-    ff = only
-[alias]
-        yolo = "!f() { curl -s https://whatthecommit.com/index.txt | xargs git commit -m; }; f"
-
-[merge]
-    conflictstyle = zdiff3
-
-[rebase]
-    autosquash = true
-
-[diff]
-    algorithm = histogram
-
-[interactive]
-    diffFilter = delta --color-only
-
-[help]
-    autocorrect = prompt
-
-[fetch]
-	writeCommitGraph = true
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
+	email = 56686898+andwati@users.noreply.github.com
+[init]
+	defaultBranch = main
