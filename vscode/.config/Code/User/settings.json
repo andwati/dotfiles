@@ -1,0 +1,169 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "workbench.startupEditor": "none",
+  "cSpell.userWords": [
+    "aiwfi",
+    "Andwati",
+    "ASGI",
+    "celerybeat",
+    "CLKG",
+    "cython",
+    "djangorestframework",
+    "djlint",
+    "dmypy",
+    "dotenv",
+    "endmacro",
+    "expenseswebsite",
+    "flaskr",
+    "gitno",
+    "Goatcounter",
+    "griggs",
+    "gruvbox",
+    "gunicorn",
+    "Gupkre",
+    "hepner",
+    "hermant",
+    "heroicons",
+    "Homesteady",
+    "inspo",
+    "ipython",
+    "isort",
+    "krzysztof",
+    "lbgw",
+    "Machu",
+    "makemigrations",
+    "Matomo",
+    "mattn",
+    "Metawork",
+    "mkdocs",
+    "mypy",
+    "Ndarray",
+    "neogit",
+    "OPENWEATHER",
+    "pgpass",
+    "Phuket",
+    "Picchu",
+    "pipenv",
+    "Pipfile",
+    "psycopg",
+    "pybuilder",
+    "pycache",
+    "pyenv",
+    "pyfile",
+    "pyjwt",
+    "pypa",
+    "pypi",
+    "pytest",
+    "pyupgrade",
+    "Rica",
+    "runserver",
+    "saru",
+    "Scrapy",
+    "shadcn",
+    "shopyangu",
+    "spyproject",
+    "telebot",
+    "TPTX",
+    "turbopack",
+    "venv",
+    "webaliser",
+    "webassets",
+    "websockets",
+    "whitenoise",
+    "wikipediaapi",
+    "yasg"
+  ],
+  "git.autofetch": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "telemetry.telemetryLevel": "off",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "django-html": "html"
+  },
+  "zig.path": "c:\\Users\\Ian\\AppData\\Roaming\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zig_install\\zig.exe",
+  "zig.zls.path": "c:\\Users\\Ian\\AppData\\Roaming\\Code\\User\\globalStorage\\ziglang.vscode-zig\\zls_install\\zls.exe",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.fontFamily": "\"MesloLGM Nerd Font\"",
+  "files.autoSaveWhenNoErrors": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "haskell.manageHLS": "GHCup",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "makefile.configureOnOpen": true,
+  "zig.zls.enabled": "on",
+  "go.toolsManagement.autoUpdate": true,
+  "snyk.folderConfigs": [
+    {
+      "folderPath": "c:\\Users\\Ian\\dev\\hacktrix",
+      "baseBranch": "main",
+      "localBranches": [
+        "main"
+      ]
+    }
+  ],
+  "snyk.yesWelcomeNotification": false,
+  "snyk.trustedFolders": [
+    "c:\\Users\\Ian\\dev\\hacktrix"
+  ],
+  "workbench.colorCustomizations": {
+    "[Vira*]": {
+      "toolbar.activeBackground": "#80CBC426",
+      "activityBarBadge.background": "#80CBC4",
+      "activityBar.activeBorder": "#80CBC4",
+      "activityBarTop.activeBorder": "#80CBC4",
+      "list.inactiveSelectionIconForeground": "#80CBC4",
+      "list.activeSelectionForeground": "#80CBC4",
+      "list.inactiveSelectionForeground": "#80CBC4",
+      "list.highlightForeground": "#80CBC4",
+      "sash.hoverBorder": "#80CBC480",
+      "list.activeSelectionIconForeground": "#80CBC4",
+      "scrollbarSlider.activeBackground": "#80CBC480",
+      "editorSuggestWidget.highlightForeground": "#80CBC4",
+      "textLink.foreground": "#80CBC4",
+      "progressBar.background": "#80CBC4",
+      "pickerGroup.foreground": "#80CBC4",
+      "tab.activeBorder": "#80CBC4",
+      "notificationLink.foreground": "#80CBC4",
+      "editorWidget.resizeBorder": "#80CBC4",
+      "editorWidget.border": "#80CBC4",
+      "settings.modifiedItemIndicator": "#80CBC4",
+      "settings.headerForeground": "#80CBC4",
+      "panelTitle.activeBorder": "#80CBC4",
+      "breadcrumb.activeSelectionForeground": "#80CBC4",
+      "menu.selectionForeground": "#80CBC4",
+      "menubar.selectionForeground": "#80CBC4",
+      "editor.findMatchBorder": "#80CBC4",
+      "selection.background": "#80CBC440",
+      "statusBarItem.remoteBackground": "#80CBC4",
+      "notebook.inactiveFocusedCellBorder": "#80CBC480",
+      "commandCenter.activeBorder": "#80CBC480"
+    }
+  },
+  "snyk.advanced.cliPath": "/home/ian/.local/share/snyk/vscode-cli/snyk-linux",
+  "editor.fontFamily": "\"MesloLGM Nerd Font\", 'monospace', monospace",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
+  "editor.minimap.enabled": false,
+  "python.analysis.typeCheckingMode": "strict"
+}
