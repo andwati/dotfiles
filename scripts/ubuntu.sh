@@ -1,5 +1,0 @@
-
-
-
-
-minikube start && minikube dashboard
