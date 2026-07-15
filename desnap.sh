@@ -127,11 +127,7 @@ fi
 
 if [[ ${#unmapped[@]} -gt 0 ]]; then
   warn "no apt equivalent known for: ${unmapped[*]} — setting up Flatpak/Flathub so you can still get them"
-  apt_install flatpak
-  if has_cmd gnome-shell; then
-    apt_install gnome-software-plugin-flatpak
-  fi
-  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  ensure_flatpak
   warn "search/install with: flatpak search <name>   &&   flatpak install flathub <app-id>"
   for s in "${unmapped[@]}"; do
     warn "  - $s"

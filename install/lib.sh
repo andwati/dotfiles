@@ -48,6 +48,17 @@ apt_install() {
   fi
 }
 
+# ensure_flatpak — installs flatpak (+ GNOME Software integration when
+# running GNOME) and adds the Flathub remote system-wide. Shared by any
+# module that prefers a verified Flathub app id over a vendor's own apt repo.
+ensure_flatpak() {
+  apt_install flatpak
+  if has_cmd gnome-shell; then
+    apt_install gnome-software-plugin-flatpak
+  fi
+  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+
 # apt_add_repo <list-name> <keyring-path> <key-url> <repo-line>
 # Registers a signed apt repo the way every vendor's official install docs do
 # it (dearmor the key into /etc/apt/keyrings or similar, write a .list file),

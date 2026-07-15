@@ -1,7 +1,10 @@
 install_slack() {
-  if has_cmd slack; then ok "slack already installed"; return; fi
-  apt_add_repo slack /etc/apt/trusted.gpg.d/slack.gpg \
-    https://packagecloud.io/slacktechnologies/slack/gpgkey \
-    "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main"
-  apt_install slack-desktop
+  if flatpak list --app 2>/dev/null | grep -q com.slack.Slack; then
+    ok "slack already installed"
+    return
+  fi
+
+  ensure_flatpak
+  sudo flatpak install -y flathub com.slack.Slack
+  rollback_push "sudo flatpak uninstall -y com.slack.Slack"
 }
