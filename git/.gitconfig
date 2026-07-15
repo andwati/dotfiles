@@ -1,0 +1,24 @@
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    lg = log --oneline --graph --decorate --all
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgSign = true
+
+[include]
+    path = ~/.gitconfig.local

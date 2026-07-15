@@ -1,0 +1,58 @@
+{
+    "json.schemaDownload.trustedDomains": {
+        "https://biomejs.dev": true,
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://turbo.build": true,
+        "https://turborepo.dev": true,
+        "https://ui.shadcn.com": true,
+        "https://www.schemastore.org/": true
+    },
+    "claudeCode.preferredLocation": "panel",
+    "git.confirmSync": false,
+    "diffEditor.renderSideBySide": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+    "redhat.telemetry.enabled": false,
+    "explorer.confirmDelete": false,
+    "chat.viewSessions.orientation": "stacked",
+    "snyk.securityAtInception.autoConfigureSnykMcpServer": true,
+    "snyk.securityAtInception.executionFrequency": "On Code Generation",
+    "snyk.yesWelcomeNotification": false,
+    "diffEditor.maxComputationTime": 0,
+ 
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.editor.enablePreview": false,
+    "cSpell.enabledNotifications": {
+        "Lines too Long": false,
+        "Average Word Length too Long": false,
+        "Maximum Word Length Exceeded": false
+    },
+    "editor.fontFamily": "'Monaspace Argon NF','Droid Sans Mono', monospace",
+    "terminal.integrated.fontFamily": "'Monaspace Argon NF'",
+    "cSpell.userWords": [
+        "Mikro"
+    ],
+    "editor.foldingImportsByDefault": true,
+    "js/ts.updateImportsOnFileMove.enabled": "always",
+    "editor.codeActionsOnSave": {
+        
+    }
+}
