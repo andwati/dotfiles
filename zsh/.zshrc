@@ -112,6 +112,10 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # User configuration
 
+# Needed for gpg-agent to prompt on the right terminal when pinentry falls
+# back to a tty (e.g. pinentry-curses); harmless no-op with pinentry-qt.
+export GPG_TTY=$(tty)
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
