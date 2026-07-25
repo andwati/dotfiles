@@ -39,6 +39,11 @@ link "$DOTFILES_DIR/zsh/.zshenv" "$HOME/.zshenv"
 link "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 link "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
+mkdir -p "$HOME/.gnupg"
+chmod 700 "$HOME/.gnupg"
+link "$DOTFILES_DIR/gnupg/.gnupg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+gpgconf --kill gpg-agent 2>/dev/null || true
+
 cat <<'EOF'
 
 Done. This does NOT install (grab these separately if missing):
