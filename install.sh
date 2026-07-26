@@ -55,6 +55,7 @@ mkdir -p "$HOME/.gnupg" && chmod 700 "$HOME/.gnupg"
 
 stow_package zsh
 stow_package gnupg
+stow_package git
 gpgconf --kill gpg-agent 2>/dev/null || true
 
 cat <<'EOF'

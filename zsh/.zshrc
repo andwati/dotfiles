@@ -143,6 +143,13 @@ export GPG_TTY=$(tty)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# eza: colourful, icon-rich listings that stay clean when piped.
+alias ls='eza --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+alias l='eza -lah --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+alias ll='eza -lh --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+alias la='eza -lAh --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+alias lt='eza --tree --level=2 --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+
 # Lazy-load nvm: sourcing nvm.sh eagerly costs 300-700ms on every shell
 # startup even when node isn't used that session. These stubs load the
 # real nvm on first actual use, then get out of the way.
@@ -188,3 +195,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 [ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"
+
+# Created by `pipx` on 2026-07-26 14:32:10
+export PATH="$PATH:/home/ian/.local/bin"
