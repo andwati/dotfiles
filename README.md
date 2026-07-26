@@ -14,7 +14,7 @@ Each top-level directory is a [GNU Stow](https://www.gnu.org/software/stow/)
 package mirroring `$HOME` (e.g. `zsh/.zshrc` -> `~/.zshrc`). `install.sh`
 clones oh-my-zsh plus the theme/plugins `.zshrc` expects (powerlevel10k,
 zsh-autosuggestions, zsh-syntax-highlighting, zsh-history-substring-search,
-zsh-completions, you-should-use), then runs `stow zsh gnupg` to link
+zsh-completions, you-should-use), then stows the `zsh`, `gnupg`, and `git` packages to link
 everything in, backing up any conflicting real files it finds first (e.g.
 oh-my-zsh's own freshly-installed `.zshrc`).
 

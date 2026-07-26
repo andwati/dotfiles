@@ -1,0 +1,8 @@
+[user]
+	name = andwati
+	email = andwatiian@gmail.com
+	signingkey = 1F20FED0AA05B0DA
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
