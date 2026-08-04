@@ -150,23 +150,21 @@ alias ll='eza -lh --git --color-scale=all --color=auto --icons=auto --hyperlink=
 alias la='eza -lAh --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
 alias lt='eza --tree --level=2 --color=auto --icons=auto --hyperlink=auto --group-directories-first'
 
-# Lazy-load nvm: sourcing nvm.sh eagerly costs 300-700ms on every shell
-# startup even when node isn't used that session. These stubs load the
-# real nvm on first actual use, then get out of the way.
+# nvm: the lazy-load stub (wrapper functions deferring to a helper that
+# sourced nvm.sh on first real use) was unreliable in some non-interactive
+# shell contexts, where the wrapper could run without the helper function
+# being defined yet. Sourcing eagerly costs 300-700ms on shell startup but
+# always works.
 export NVM_DIR="$HOME/.nvm"
-_nvm_lazy_load() {
-  unset -f nvm node npm npx corepack
+() {
   # oh-my-zsh sets extendedglob, which breaks nvm's `lts/*`-style alias
   # globs and silently kills auto-activation of the default version.
+  # local_options scopes this to the anonymous function, restoring the
+  # prior setting once nvm.sh is sourced.
   setopt local_options no_extended_glob
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
-nvm() { _nvm_lazy_load; nvm "$@"; }
-node() { _nvm_lazy_load; node "$@"; }
-npm() { _nvm_lazy_load; npm "$@"; }
-npx() { _nvm_lazy_load; npx "$@"; }
-corepack() { _nvm_lazy_load; corepack "$@"; }
 
 # Lazy-load pyenv's shell integration (~130-150ms here). Shims are
 # already on PATH via .zprofile, so `python`/`pip` work immediately
