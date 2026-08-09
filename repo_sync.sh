@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GITHUB_USERNAME="dev"
-DESTINATION_FOLDER=~/cloned
+GITHUB_USERNAME="andwati"
+DESTINATION_FOLDER=~/dev
 
 # Define colors
 GREEN="\e[32m"
