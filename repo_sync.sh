@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GITHUB_USERNAME="andwati"
+GITHUB_USERNAME="dev"
 DESTINATION_FOLDER=~/cloned
 
 # Define colors
