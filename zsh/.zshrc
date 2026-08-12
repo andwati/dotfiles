@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/ian/.zsh/completions:"* ]]; then export FPATH="/home/ian/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Must stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -10,21 +12,6 @@ if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.z
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# oh-my-zsh's own compinit call has no caching: it does a full completion
-# rescan (~300ms here) on every single shell start. If we already have a
-# same-day dump, load it the fast way ourselves and turn oh-my-zsh's later
-# call into a no-op. On a stale/missing dump we do nothing here, so
-# oh-my-zsh falls through to its normal (slow but correct) full rebuild.
-# If completions ever look stale after changing `plugins=(...)`, run:
-#   rm -f ~/.zcompdump*; exec zsh
-_zcompdump="${ZDOTDIR:-$HOME}/.zcompdump-${HOST/.*/}-${ZSH_VERSION}"
-if [[ -n ${_zcompdump}(#qN.mh+24) ]]; then
-  autoload -Uz compinit
-  compinit -C -d "$_zcompdump"
-  compinit() { :; }
-fi
-unset _zcompdump
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -186,7 +173,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/ian/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
@@ -196,3 +183,4 @@ esac
 
 # Created by `pipx` on 2026-07-26 14:32:10
 export PATH="$PATH:/home/ian/.local/bin"
+. "/home/ian/.deno/env"
