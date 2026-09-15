@@ -184,3 +184,17 @@ esac
 # Created by `pipx` on 2026-07-26 14:32:10
 export PATH="$PATH:/home/ian/.local/bin"
 . "/home/ian/.deno/env"
+
+# Java (Amazon Corretto 21) and Android SDK, for Android Studio / Gradle builds.
+export JAVA_HOME="/usr/lib/jvm/java-21-amazon-corretto"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ian/.local/bin:$PATH"
+
+# Resend CLI
+export PATH="$HOME/.resend/bin:$PATH"
+
+export PATH="/home/ian/depot_tools:$PATH"
