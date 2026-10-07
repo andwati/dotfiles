@@ -1,0 +1,23 @@
+{
+    "workbench.colorTheme": "Everforest Dark",
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font','Droid Sans Mono', monospace",
+    "workbench.browser.searchEngine": "google",
+    "workbench.browser.openLocalhostLinks": false,
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": true,
+    "json.schemaDownload.trustedDomains": {
+        "https://biomejs.dev": true,
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://www.schemastore.org/": true
+    },
+    "python.analysis.typeCheckingMode": "strict",
+    "git.autofetch": true,
+    "git.confirmSync": false
+}

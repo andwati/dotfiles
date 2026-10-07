@@ -56,12 +56,19 @@ mkdir -p "$HOME/.gnupg" && chmod 700 "$HOME/.gnupg"
 stow_package zsh
 stow_package gnupg
 stow_package git
+stow_package ghostty
+stow_package kde
+stow_package nvim
+stow_package vscode
 gpgconf --kill gpg-agent 2>/dev/null || true
 
 cat <<'EOF'
 
 Done. This does NOT install (grab these separately if missing):
   - nvm, pyenv, bun, pnpm, deno, rustup, docker, fzf, zoxide
+  - ghostty, neovim (+ fd, lazygit, tree-sitter-cli, wl-clipboard), VS Code
+  - Colloid Everforest GTK/icon themes (AUR: colloid-everforest-gtk-theme-git,
+    colloid-everforest-theme-git)
   - a Nerd Font (JetBrains Mono Nerd Font) — set it as your terminal's font
 
 Start a new shell to pick everything up: exec zsh
