@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Everforest Dark",
+  "version": "1.0",
+  "description": "Everforest dark theme matching the desktop palette (bg #2b3339).",
+  "theme": {
+    "colors": {
+      "frame": [35, 42, 46],
+      "frame_inactive": [35, 42, 46],
+      "frame_incognito": [30, 35, 38],
+      "frame_incognito_inactive": [30, 35, 38],
+      "toolbar": [43, 51, 57],
+      "toolbar_text": [211, 198, 170],
+      "toolbar_button_icon": [167, 192, 128],
+      "tab_text": [211, 198, 170],
+      "tab_background_text": [133, 146, 137],
+      "bookmark_text": [211, 198, 170],
+      "button_background": [52, 63, 68],
+      "omnibox_background": [52, 63, 68],
+      "omnibox_text": [211, 198, 170],
+      "background_tab": [35, 42, 46],
+      "background_tab_inactive": [35, 42, 46],
+      "ntp_background": [43, 51, 57],
+      "ntp_text": [211, 198, 170],
+      "ntp_link": [167, 192, 128],
+      "ntp_header": [61, 72, 77]
+    }
+  }
+}
