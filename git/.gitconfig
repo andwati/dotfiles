@@ -12,7 +12,7 @@
 	ui = true
 [core]
 	filemode = false
-	autocrlf = false
+	autocrlf = input
 [credential "https://android.googlesource.com"]
 	helper = 
 	helper = luci
