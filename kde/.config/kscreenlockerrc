@@ -1,0 +1,11 @@
+[Daemon]
+Autolock=false
+LockOnResume=false
+Timeout=0
+
+[Greeter]
+WallpaperPlugin=org.kde.image
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=file:///home/ian/.local/share/wallpapers/everforest/1-tree-tops.webp
+PreviewImage=file:///home/ian/.local/share/wallpapers/everforest/1-tree-tops.webp
