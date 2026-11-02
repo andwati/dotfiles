@@ -5,7 +5,7 @@ My configuration files that keep me from flipping a table after logging in.
 ## Setup
 
 ```
-sudo pacman -S stow   # or your distro's equivalent
+sudo dnf install stow
 git clone https://github.com/andwati/dotfiles ~/dev/dotfiles
 ~/dev/dotfiles/install.sh
 ```

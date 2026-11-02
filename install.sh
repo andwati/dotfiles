@@ -9,7 +9,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 command -v stow >/dev/null || {
-  echo "GNU Stow is required: sudo pacman -S stow (or your distro's equivalent)" >&2
+  echo "GNU Stow is required: sudo dnf install stow" >&2
   exit 1
 }
 
