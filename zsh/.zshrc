@@ -1,11 +1,8 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/ian/.zsh/completions:"* ]]; then export FPATH="/home/ian/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Must stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Add deno completions to search path
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -179,14 +176,14 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
-[ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"
+
 
 # Created by `pipx` on 2026-07-26 14:32:10
 export PATH="$PATH:/home/ian/.local/bin"
-. "/home/ian/.deno/env"
 
-# Java (Amazon Corretto 21) and Android SDK, for Android Studio / Gradle builds.
-export JAVA_HOME="/usr/lib/jvm/java-21-amazon-corretto"
+
+# Java 17 (Temurin via SDKMAN) and Android SDK, for Android Studio / Gradle builds.
+export JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.20-tem"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
 
@@ -198,3 +195,7 @@ export PATH="/home/ian/.local/bin:$PATH"
 export PATH="$HOME/.resend/bin:$PATH"
 
 export PATH="/home/ian/depot_tools:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
