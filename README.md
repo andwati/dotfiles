@@ -28,5 +28,5 @@ constantly, and uses `pinentry-qt` for a native dialog instead of a
 terminal prompt.
 
 Not installed by the script — grab these separately if a fresh machine needs
-them: `nvm`, `pyenv`, `bun`, `pnpm`, `deno`, `rustup`, `docker`, `fzf`,
-`zoxide`, and a Nerd Font (JetBrains Mono Nerd Font) set as your terminal font.
+them: `nvm`, `pyenv`, `bun`, `pnpm`, `deno`, `rustup`, `docker`, `ghostty`,
+`lazygit`, and a Nerd Font (JetBrains Mono Nerd Font) set as your terminal font.

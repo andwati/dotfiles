@@ -8,10 +8,10 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-command -v stow >/dev/null || {
-  echo "GNU Stow is required: sudo dnf install stow" >&2
-  exit 1
-}
+# Fedora packages the dotfiles rely on (dnf skips ones already installed).
+sudo dnf install -y \
+  stow git curl zsh gnupg2 pinentry-qt \
+  neovim ripgrep fd-find fzf zoxide wl-clipboard gcc make
 
 clone_if_missing() {
   local url="$1" dst="$2"
@@ -65,8 +65,8 @@ gpgconf --kill gpg-agent 2>/dev/null || true
 cat <<'EOF'
 
 Done. This does NOT install (grab these separately if missing):
-  - nvm, pyenv, bun, pnpm, deno, rustup, docker, fzf, zoxide
-  - ghostty, neovim (+ fd, lazygit, tree-sitter-cli, wl-clipboard), VS Code
+  - nvm, pyenv, bun, pnpm, deno, rustup, docker
+  - ghostty, lazygit, tree-sitter-cli, VS Code (not in Fedora's default repos)
   - a Nerd Font (JetBrains Mono Nerd Font) — set it as your terminal's font
 
 Start a new shell to pick everything up: exec zsh
