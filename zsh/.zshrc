@@ -3,6 +3,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Keep PATH free of duplicates (first occurrence wins).
+typeset -U path PATH
+
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -77,9 +80,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git sudo extract archlinux docker docker-compose fzf
+  git sudo extract docker docker-compose fzf
   zsh-completions you-should-use
-  zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
+  autoswitch_virtualenv
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-history-substring-search  # must come after zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -178,18 +184,11 @@ esac
 # pnpm end
 
 
-# Created by `pipx` on 2026-07-26 14:32:10
-export PATH="$PATH:/home/ian/.local/bin"
-
-
 # Java 17 (Temurin via SDKMAN) and Android SDK, for Android Studio / Gradle builds.
 export JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.20-tem"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
 
-
-# Added by Antigravity CLI installer
-export PATH="/home/ian/.local/bin:$PATH"
 
 # Resend CLI
 export PATH="$HOME/.resend/bin:$PATH"
