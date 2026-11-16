@@ -8,10 +8,10 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-# Fedora packages the dotfiles rely on (dnf skips ones already installed).
-sudo dnf install -y \
-  stow git curl zsh gnupg2 pinentry-qt \
-  neovim ripgrep fd-find fzf zoxide wl-clipboard gcc make
+# Arch packages the dotfiles rely on.
+yay -S --needed \
+  stow git curl zsh gnupg pinentry \
+  neovim ripgrep fd fzf zoxide eza fnm wl-clipboard gcc make jdk21-openjdk
 
 clone_if_missing() {
   local url="$1" dst="$2"
@@ -30,6 +30,7 @@ clone_if_missing https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_
 clone_if_missing https://github.com/zsh-users/zsh-history-substring-search "$ZSH_CUSTOM/plugins/zsh-history-substring-search"
 clone_if_missing https://github.com/zsh-users/zsh-completions "$ZSH_CUSTOM/plugins/zsh-completions"
 clone_if_missing https://github.com/MichaelAquilina/zsh-you-should-use "$ZSH_CUSTOM/plugins/you-should-use"
+clone_if_missing https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv "$ZSH_CUSTOM/plugins/autoswitch_virtualenv"
 
 # Stow refuses to link over a real (non-symlink) file, so move any
 # conflicting pre-existing file aside first (e.g. the .zshrc oh-my-zsh's
@@ -65,8 +66,8 @@ gpgconf --kill gpg-agent 2>/dev/null || true
 cat <<'EOF'
 
 Done. This does NOT install (grab these separately if missing):
-  - nvm, pyenv, bun, pnpm, deno, rustup, docker
-  - ghostty, lazygit, tree-sitter-cli, VS Code (not in Fedora's default repos)
+  - pyenv, pnpm, deno, rustup, docker
+  - ghostty, lazygit, tree-sitter-cli, VS Code (AUR)
   - a Nerd Font (JetBrains Mono Nerd Font) — set it as your terminal's font
 
 Start a new shell to pick everything up: exec zsh

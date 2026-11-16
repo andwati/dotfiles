@@ -1,200 +1,63 @@
-# Enable Powerlevel10k instant prompt. Must stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Keep PATH free of duplicates (first occurrence wins).
-typeset -U path PATH
+typeset -U path PATH fpath
+fpath=("$HOME/.zsh/completions" $fpath)
 
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git sudo extract docker docker-compose fzf
   zsh-completions you-should-use
   autoswitch_virtualenv
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-history-substring-search  # must come after zsh-syntax-highlighting
+  zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# To customize the prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Up/Down arrows filter history by what's already typed, not just cycle it.
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# zoxide: smarter `cd` that learns frequently/recently used directories.
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
-
-# User configuration
-
-# Needed for gpg-agent to prompt on the right terminal when pinentry falls
-# back to a tty (e.g. pinentry-curses); harmless no-op with pinentry-qt.
 export GPG_TTY=$(tty)
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR=nano
+export VISUAL=nano
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+_eza='eza --color=auto --icons=auto --hyperlink=auto --group-directories-first'
+alias ls="$_eza"
+alias l="$_eza -lah --git --color-scale=all"
+alias ll="$_eza -lh --git --color-scale=all"
+alias la="$_eza -lAh --git --color-scale=all"
+alias lt="$_eza --tree --level=2"
+unset _eza
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# eza: colourful, icon-rich listings that stay clean when piped.
-alias ls='eza --color=auto --icons=auto --hyperlink=auto --group-directories-first'
-alias l='eza -lah --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
-alias ll='eza -lh --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
-alias la='eza -lAh --git --color-scale=all --color=auto --icons=auto --hyperlink=auto --group-directories-first'
-alias lt='eza --tree --level=2 --color=auto --icons=auto --hyperlink=auto --group-directories-first'
-
-# nvm: the lazy-load stub (wrapper functions deferring to a helper that
-# sourced nvm.sh on first real use) was unreliable in some non-interactive
-# shell contexts, where the wrapper could run without the helper function
-# being defined yet. Sourcing eagerly costs 300-700ms on shell startup but
-# always works.
-export NVM_DIR="$HOME/.nvm"
-() {
-  # oh-my-zsh sets extendedglob, which breaks nvm's `lts/*`-style alias
-  # globs and silently kills auto-activation of the default version.
-  # local_options scopes this to the anonymous function, restoring the
-  # prior setting once nvm.sh is sourced.
-  setopt local_options no_extended_glob
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-
-# Lazy-load pyenv's shell integration (~130-150ms here). Shims are
-# already on PATH via .zprofile, so `python`/`pip` work immediately
-# without this; it's only needed for `pyenv shell/activate/...` and
-# completions, which this loads for real on first actual `pyenv` call.
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 pyenv() {
   unfunction pyenv
   eval "$(command pyenv init - zsh)"
   pyenv "$@"
 }
 
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME/bin:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/ian/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
-
-
-# Java 17 (Temurin via SDKMAN) and Android SDK, for Android Studio / Gradle builds.
-export JAVA_HOME="$HOME/.sdkman/candidates/java/17.0.20-tem"
+export JAVA_HOME=/usr/lib/jvm/default
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
 
+export PATH="$HOME/.resend/bin:$HOME/depot_tools:$PATH"
+
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
 
 # Resend CLI
 export PATH="$HOME/.resend/bin:$PATH"
-
-export PATH="/home/ian/depot_tools:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
