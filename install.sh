@@ -8,10 +8,15 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-# Arch packages the dotfiles rely on.
-yay -S --needed \
-  stow git curl zsh gnupg pinentry \
-  neovim ripgrep fd fzf zoxide eza fnm wl-clipboard gcc make jdk21-openjdk
+# Arch packages the dotfiles rely on; yay only runs if something is missing.
+pkgs=(
+  stow git curl zsh gnupg pinentry
+  neovim ripgrep fd fzf zoxide eza wl-clipboard gcc make jdk21-openjdk
+)
+mapfile -t missing < <(pacman -T "${pkgs[@]}" || true)
+if [ "${#missing[@]}" -gt 0 ]; then
+  yay -S --needed "${missing[@]}"
+fi
 
 clone_if_missing() {
   local url="$1" dst="$2"
@@ -40,6 +45,9 @@ stow_package() {
   while IFS= read -r -d '' f; do
     rel="${f#"$DOTFILES_DIR/$pkg/"}"
     target="$HOME/$rel"
+    case "$(realpath -m "$target")" in
+      "$DOTFILES_DIR"/*) continue ;;
+    esac
     if [ -L "$target" ]; then
       rm "$target"
     elif [ -e "$target" ]; then
